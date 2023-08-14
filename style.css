@@ -1,0 +1,15 @@
+body {
+    background-color: #151515;
+}
+.none {
+    display: none;
+}
+.main-container {
+    outline: 2px solid white;
+    width: 20rem;
+    height: 16rem;
+}
+
+.item-container{
+    
+}
