@@ -8,48 +8,49 @@
 </head>
 <body>
     <div id="main">
-        <div class="main-container">
-            <div id="0" class="item-container"></div>
-            <div id="1" class="item-container"></div>
-            <div id="2" class="item-container"></div>
-            <div id="3" class="item-container"></div>
-            <div id="4" class="item-container"></div>
-            <div id="5" class="item-container"></div>
-            <div id="6" class="item-container"></div>
-            <div id="7" class="item-container"></div>
-            <div id="8" class="item-container"></div>
-            <div id="9" class="item-container"></div>
-            <div id="10" class="item-container"></div>
-            <div id="11" class="item-container"></div>
-            <div id="12" class="item-container"></div>
-            <div id="13" class="item-container"></div>
-            <div id="14" class="item-container"></div>
-            <div id="15" class="item-container"></div>
+        <div class="main-container" id="left">
+            <div id="L0" class="item-container" onclick="moveItem(this, 0)"></div>
+            <div id="L1" class="item-container" onclick="moveItem(this, 1)"></div>
+            <div id="L2" class="item-container" onclick="moveItem(this, 2)"></div>
+            <div id="L3" class="item-container" onclick="moveItem(this, 3)"></div>
+            <div id="L4" class="item-container" onclick="moveItem(this, 4)"></div>
+            <div id="L5" class="item-container" onclick="moveItem(this, 5)"></div>
+            <div id="L6" class="item-container" onclick="moveItem(this, 6)"></div>
+            <div id="L7" class="item-container" onclick="moveItem(this, 7)"></div>
+            <div id="L8" class="item-container" onclick="moveItem(this, 8)"></div>
+            <div id="L9" class="item-container" onclick="moveItem(this, 9)"></div>
+            <div id="L10" class="item-container" onclick="moveItem(this, 10)"></div>
+            <div id="L11" class="item-container" onclick="moveItem(this, 11)"></div>
+            <div id="L12" class="item-container" onclick="moveItem(this, 12)"></div>
+            <div id="L13" class="item-container" onclick="moveItem(this, 13)"></div>
+            <div id="L14" class="item-container" onclick="moveItem(this, 14)"></div>
+            <div id="L15" class="item-container" onclick="moveItem(this, 15)"></div>
         </div>
-        
     </div>
     <div id="secondary">
-        <div class="secondary-container">
-            <div id="0" class="item-container"></div>
-            <div id="1" class="item-container"></div>
-            <div id="2" class="item-container"></div>
-            <div id="3" class="item-container"></div>
-            <div id="4" class="item-container"></div>
-            <div id="5" class="item-container"></div>
-            <div id="6" class="item-container"></div>
-            <div id="7" class="item-container"></div>
-            <div id="8" class="item-container"></div>
-            <div id="9" class="item-container"></div>
-            <div id="10" class="item-container"></div>
-            <div id="11" class="item-container"></div>
-            <div id="12" class="item-container"></div>
-            <div id="13" class="item-container"></div>
-            <div id="14" class="item-container"></div>
-            <div id="15" class="item-container"></div>
+        <div class="secondary-container" id="right">
+            <div id="R0" class="item-container" onclick="moveItem(this, 0)"></div>
+            <div id="R1" class="item-container" onclick="moveItem(this, 1)"></div>
+            <div id="R2" class="item-container" onclick="moveItem(this, 2)"></div>
+            <div id="R3" class="item-container" onclick="moveItem(this, 3)"></div>
+            <div id="R4" class="item-container" onclick="moveItem(this, 4)"></div>
+            <div id="R5" class="item-container" onclick="moveItem(this, 5)"></div>
+            <div id="R6" class="item-container" onclick="moveItem(this, 6)"></div>
+            <div id="R7" class="item-container" onclick="moveItem(this, 7)"></div>
+            <div id="R8" class="item-container" onclick="moveItem(this, 8)"></div>
+            <div id="R9" class="item-container" onclick="moveItem(this, 9)"></div>
+            <div id="R10" class="item-container" onclick="moveItem(this, 10)"></div>
+            <div id="R11" class="item-container" onclick="moveItem(this, 11)"></div>
+            <div id="R12" class="item-container" onclick="moveItem(this, 12)"></div>
+            <div id="R13" class="item-container" onclick="moveItem(this, 13)"></div>
+            <div id="R14" class="item-container" onclick="moveItem(this, 14)"></div>
+            <div id="R15" class="item-container" onclick="moveItem(this, 15)"></div>
         </div>
     </div>
     <button class="open-main" onclick="toggleDisplay('main')">Toggle Inventory</button>
     <button class="randomize" onclick="generateRandomItems()">Randomize Items</button>
+    <button class="lootAll" onclick="lootAll()">Take All</button>
+    <button class="clearAll" onclick="clearAll()">Clear All</button>
     <script src="script.js"></script>
 </body>
 </html>

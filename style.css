@@ -38,6 +38,16 @@ body {
     width: 120px;
     height: 120px;
     background-color: #0a0c1a;
+    background-size: 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 16px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 0px 5px #000;
+    user-select: none;
+}
+
+.has-item {
+    cursor: pointer;
 }
 
 .open-main {
@@ -56,6 +66,7 @@ body {
     background-color: #85ee8e;
     box-shadow: 0 0 15px rgba(37, 216, 96, 0.5);
     transform: scale(103%);
+    cursor: pointer;
 }
 
 .open-main:active {
@@ -78,6 +89,7 @@ body {
     background-color: #62b8e9;
     box-shadow: 0 0 15px rgba(37, 135, 216, 0.5);
     transform: scale(103%);
+    cursor: pointer;
 }
 
 .randomize:active {
@@ -93,4 +105,50 @@ body {
     position: absolute;
     right: 10rem;
     top: 2rem;
+}
+
+.lootAll {
+    position: absolute;
+    top: 18rem;
+    left: 2rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 15px;
+    border: none;
+    transition: 150ms;
+    background-color: rgb(220, 226, 26);
+}
+
+.lootAll:hover {
+    background-color: rgb(220, 226, 26);
+    box-shadow: 0 0 15px rgba(246, 255, 0, 0.5);
+    transform: scale(103%);
+    cursor: pointer;
+}
+
+.lootAll:active {
+    transform: scale(97%);
+}
+
+.clearAll {
+    position: absolute;
+    top: 26rem;
+    left: 2rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 15px;
+    border: none;
+    transition: 150ms;
+    background-color: #d84949;
+}
+
+.clearAll:hover {
+    background-color: #d84949;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    transform: scale(103%);
+    cursor: pointer;
+}
+
+.clearAll:active {
+    transform: scale(97%);
 }
