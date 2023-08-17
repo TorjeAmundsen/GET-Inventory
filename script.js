@@ -10,8 +10,10 @@ function toggleDisplay(id) {
     document.getElementById(id).classList.toggle("none");
 };
 
-// Her definerer vi lister (arrays) som skal inneholde items i inventarene, og også hvilke bilder som skal være inni hver rute
+// Her definerer vi lister ( eller arrays) som skal inneholde items i inventarene, og også hvilke bilder som skal være inni hver boks
+// Alle verdiene starter som 'null', som indikerer at alle er tomme
 let inventory_left      = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; // length = 16
+                        
 let inventory_right     = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; // length = 16
 
 let inventoryLeftImg    = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
@@ -22,21 +24,22 @@ let right_IDs   = ["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "
 
 // Oppdaterer inventaret visuelt på siden
 function updateInventory() {
-    for (let i = 0; i < inventory_right.length; i++) { // Looper gjennom koden under like mange ganger som vi har slots i inventaret
-        let element = document.getElementById(right_IDs[i]);
-        element.innerHTML = inventory_right[i];
-        if (inventoryRightImg[i] != null) {
+    for (let i = 0; i < inventory_right.length; i++) {       // Looper gjennom koden under like mange ganger som vi har slots i inventaret
+                                                             // Først går vi gjennom inventaret på høyresiden
+        let element = document.getElementById(right_IDs[i]); // Her velges den enkelte 'boksen' som vi skal redigere
+        element.innerHTML = inventory_right[i];              // Innholdet i den enkelte boksen settes til teksten i inventory_right-lista
+        if (inventoryRightImg[i] != null) {                  // Hvis boksen ikke er tom, gir vi den et bakgrunnsbilde fra en liste "IMAGES"
             element.style.backgroundImage = `url('img/${inventoryRightImg[i]}')`
             element.classList.add("has-item");
         } else {
-            element.style.backgroundImage = "none";
+            element.style.backgroundImage = "none";          // Hvis boksen er tom, fjerner vi bakgrunnsbildet
             element.classList.remove("has-item");
         };
-    };
-    for (let i = 0; i < inventory_left.length; i++) { // Looper gjennom koden under like mange ganger som vi har slots i inventaret
+        
+        // Her gjøres det samme, men for boksen på venstresiden
         let element2 = document.getElementById(left_IDs[i]);
         element2.innerHTML = inventory_left[i];
-        if (inventoryLeftImg[i] != null) {
+        if (inventoryLeftImg[i] != null) {  
             element2.style.backgroundImage = `url('img/${inventoryLeftImg[i]}')`;
             element2.classList.add("has-item");
         } else {
@@ -84,7 +87,7 @@ function getRandomNumber(min, max) {
 //Genererer tilfeldige items som da legges til i inventaret på høyresiden
 function generateRandomItems() {
     for (let i = 0; i < inventory_right.length; i++) {
-        let random = getRandomNumber(0, 32);
+        let random = getRandomNumber(0, 30);
         if (random <= 10) {
             inventory_right[i] = ITEMS[random];
             inventoryRightImg[i] = IMAGES[random];
@@ -123,7 +126,7 @@ function moveItem(element, slot) {
     };
 };
 
-//Flytter alt fra høyre side inn til inventaret
+//Flytter alt fra høyre side inn til inventaret der de får plass, ved å loope gjennom inventaret å sjekke etter 'null', altså tomme bokser
 function lootAll(){
     for (let right_slot = 0; right_slot < inventory_right.length; right_slot++) {
         if (inventory_right[right_slot] != null || inventory_right[right_slot] != "") {
@@ -140,7 +143,7 @@ function lootAll(){
     updateInventory();
 }
 
-//Fjerner alle items
+//Fjerner alle items ved å sette alle verdiene til null (ingenting) og oppdaterer inventaret
 function clearAll() {
     inventory_left      = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
     inventory_right     = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
@@ -148,11 +151,3 @@ function clearAll() {
     inventoryRightImg   = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
     updateInventory();
 }
-
-/*
-
-    -- TODO LIST --
-
-Images for the items inside the inventory -DONE!
-
-*/
