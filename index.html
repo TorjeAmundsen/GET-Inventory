@@ -7,7 +7,7 @@
     <title>Inventory C Team 1</title>
 </head>
 <body>
-    <div id="main">
+    <div id="main" class="none">
         <div class="main-container" id="left">
             <div id="L0" class="item-container" onclick="moveItem(this, 0)"></div>
             <div id="L1" class="item-container" onclick="moveItem(this, 1)"></div>
@@ -27,7 +27,7 @@
             <div id="L15" class="item-container" onclick="moveItem(this, 15)"></div>
         </div>
     </div>
-    <div id="secondary">
+    <div id="secondary" class="none">
         <div class="secondary-container" id="right">
             <div id="R0" class="item-container" onclick="moveItem(this, 0)"></div>
             <div id="R1" class="item-container" onclick="moveItem(this, 1)"></div>
@@ -48,6 +48,7 @@
         </div>
     </div>
     <button class="open-main" onclick="toggleDisplay('main')">Toggle Inventory</button>
+    <button class="open-secondary" onclick="toggleDisplay('secondary')">Open Chest</button>
     <button class="randomize" onclick="generateRandomItems()">Randomize Items</button>
     <button class="lootAll" onclick="lootAll()">Take All</button>
     <button class="clearAll" onclick="clearAll()">Clear All</button>

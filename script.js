@@ -5,11 +5,12 @@ Teamoppgave #1 - Inventory
 
 */
 
-//Toggler synligheten til inventaret
+//Toggler synligheten til inventaret vet å toggle en klasse 'none' som bare har display: none i seg
 function toggleDisplay(id) {
     document.getElementById(id).classList.toggle("none");
 };
 
+// Her definerer vi lister (arrays) som skal inneholde items i inventarene, og også hvilke bilder som skal være inni hver rute
 let inventory_left      = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; // length = 16
 let inventory_right     = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; // length = 16
 
@@ -21,7 +22,7 @@ let right_IDs   = ["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "
 
 // Oppdaterer inventaret visuelt på siden
 function updateInventory() {
-    for (let i = 0; i < inventory_right.length; i++) { // for (variabel ; stop condition ; i++)
+    for (let i = 0; i < inventory_right.length; i++) { // Looper gjennom koden under like mange ganger som vi har slots i inventaret
         let element = document.getElementById(right_IDs[i]);
         element.innerHTML = inventory_right[i];
         if (inventoryRightImg[i] != null) {
@@ -32,7 +33,7 @@ function updateInventory() {
             element.classList.remove("has-item");
         };
     };
-    for (let i = 0; i < inventory_left.length; i++) { // for (variabel ; stop condition ; i++)
+    for (let i = 0; i < inventory_left.length; i++) { // Looper gjennom koden under like mange ganger som vi har slots i inventaret
         let element2 = document.getElementById(left_IDs[i]);
         element2.innerHTML = inventory_left[i];
         if (inventoryLeftImg[i] != null) {
@@ -80,7 +81,7 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-//Genererer tilfeldige items man kan legge i inventaret etterpå
+//Genererer tilfeldige items som da legges til i inventaret på høyresiden
 function generateRandomItems() {
     for (let i = 0; i < inventory_right.length; i++) {
         let random = getRandomNumber(0, 32);
@@ -141,10 +142,10 @@ function lootAll(){
 
 //Fjerner alle items
 function clearAll() {
-    inventory_left  = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
-    inventory_right = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
-    inventoryLeftImg = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
-    inventoryRightImg = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
+    inventory_left      = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
+    inventory_right     = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
+    inventoryLeftImg    = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
+    inventoryRightImg   = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
     updateInventory();
 }
 
@@ -152,6 +153,6 @@ function clearAll() {
 
     -- TODO LIST --
 
-Images for the items inside the inventory
+Images for the items inside the inventory -DONE!
 
 */
