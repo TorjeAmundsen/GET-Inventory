@@ -12,9 +12,8 @@ function toggleDisplay(id) {
 
 // Her definerer vi lister ( eller arrays) som skal inneholde items i inventarene, og også hvilke bilder som skal være inni hver boks
 // Alle verdiene starter som 'null', som indikerer at alle er tomme
-let inventory_left      = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; // length = 16
-                        
-let inventory_right     = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; // length = 16
+let inventory_left      = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];                     
+let inventory_right     = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
 
 let inventoryLeftImg    = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
 let inventoryRightImg   = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
@@ -84,14 +83,14 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-//Genererer tilfeldige items som da legges til i inventaret på høyresiden
+//Genererer tilfeldige items eller blanke ruter som da legges til i inventaret på høyresiden
 function generateRandomItems() {
     for (let i = 0; i < inventory_right.length; i++) {
-        let random = getRandomNumber(0, 30);
-        if (random <= 10) {
+        let random = getRandomNumber(0, 30); // For hver boks i inventaret genererer et tilfeldig tall mellom 0 og 30
+        if (random <= 10) {                  // Hvis tallet er mindre enn eller likt 10 setter vi inn et item
             inventory_right[i] = ITEMS[random];
             inventoryRightImg[i] = IMAGES[random];
-        } else {
+        } else {                             // Hvis tallet er over 10 gjør vi boksen blank
             inventory_right[i] = null;
             inventoryRightImg[i] = null;
         };
@@ -99,20 +98,20 @@ function generateRandomItems() {
     updateInventory();
 };
 
-// Flytter et item fra elementet du klikket på til den andre boksen
+// Flytter et item fra elementet du klikket på til det andre inventaret
 function moveItem(element, slot) {
     if (element.parentNode.id == "right") {
-        for (let i = 0; i < inventory_left.length; i++) {
-            if (inventory_left[i] === null || inventory_left[i] === "") {
-                inventory_left[i] = element.innerHTML;
-                inventory_right[slot] = null;
+        for (let i = 0; i < inventory_left.length; i++) {                 // Vi looper gjennom inventaret på andre siden av den du trykket inni
+            if (inventory_left[i] === null || inventory_left[i] === "") { // Når den finner en boks i det andre inventaret som er tom
+                inventory_left[i] = element.innerHTML;                    // setter vi inn itemet du klikket på inn i den tomme boksen vi fant
+                inventory_right[slot] = null;                             // Etterpå sletter vi itemet fra boksen du klikket på
                 inventoryLeftImg[i] = inventoryRightImg[slot];
                 inventoryRightImg[slot] = null;
                 updateInventory();
                 return;
             };
         };
-    }else {
+    }else {                                                               // Lik funksjon, bare flytter andre veien
         for (let i = 0; i < inventory_right.length; i++) {
             if (inventory_right[i] === null || inventory_right[i] === "") {
                 inventory_right[i] = element.innerHTML;
@@ -126,7 +125,7 @@ function moveItem(element, slot) {
     };
 };
 
-//Flytter alt fra høyre side inn til inventaret der de får plass, ved å loope gjennom inventaret å sjekke etter 'null', altså tomme bokser
+// Flytter alt fra høyre side inn til inventaret der de får plass, ved å loope gjennom inventaret å sjekke etter 'null', altså tomme bokser
 function lootAll(){
     for (let right_slot = 0; right_slot < inventory_right.length; right_slot++) {
         if (inventory_right[right_slot] != null || inventory_right[right_slot] != "") {
@@ -143,7 +142,7 @@ function lootAll(){
     updateInventory();
 }
 
-//Fjerner alle items ved å sette alle verdiene til null (ingenting) og oppdaterer inventaret
+// Fjerner alle items ved å sette alle verdiene til null (ingenting) og oppdaterer inventaret
 function clearAll() {
     inventory_left      = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
     inventory_right     = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
