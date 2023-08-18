@@ -12,7 +12,7 @@ function toggleDisplay(id) {
 
 // Her definerer vi lister ( eller arrays) som skal inneholde items i inventarene, og også hvilke bilder som skal være inni hver boks
 // Alle verdiene starter som 'null', som indikerer at alle er tomme
-let inventory_left      = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];                     
+let inventory_left      = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; // 16 items, 4 x 4 rutenett
 let inventory_right     = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
 
 let inventoryLeftImg    = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
@@ -20,6 +20,36 @@ let inventoryRightImg   = [null, null, null, null, null, null, null, null, null,
 
 let left_IDs    = ["L0", "L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "L10", "L11", "L12", "L13", "L14", "L15"];
 let right_IDs   = ["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11", "R12", "R13", "R14", "R15"];
+
+// Liste med mulige items
+const ITEMS = [
+    "Sword",
+    "Shield",
+    "Health Potion",
+    "Mana Potion",
+    "AK-47",
+    "RPG",
+    "Fishing Rod",
+    "Duct Tape",
+    "Rope",
+    "Strawberry",
+    "Feller"
+];
+
+//Liste av bilder til de ulike gjenstandene
+const IMAGES = [
+    "sword.png",
+    "shield.jpg",
+    "health potion.jpg",
+    "mana potion.jpg",
+    "ak-47.jpg",
+    "rpg.jpg",
+    "fishing rod.png",
+    "duct tape.png",
+    "rope.jpg",
+    "strawberry.png",
+    "feller.png"
+];
 
 // Oppdaterer inventaret visuelt på siden
 function updateInventory() {
@@ -47,36 +77,6 @@ function updateInventory() {
         }
     };
 };
-
-// Liste med mulige items
-const ITEMS = [
-    "Sword", //
-    "Shield", //
-    "Health Potion", //
-    "Mana Potion",
-    "AK-47", //
-    "RPG", //
-    "Fishing Rod",
-    "Duct Tape", //
-    "Rope", //
-    "Strawberry",
-    "Feller"
-];
-
-//Liste av bilder til de ulike gjenstandene
-const IMAGES = [
-    "sword.png",
-    "shield.jpg",
-    "health potion.jpg",
-    "mana potion.jpg",
-    "ak-47.jpg",
-    "rpg.jpg",
-    "fishing rod.png",
-    "duct tape.png",
-    "rope.jpg",
-    "strawberry.png",
-    "feller.png"
-];
 
 //Genererer et tilfeldig nummer mellom det minimale og maksimale nummeret
 function getRandomNumber(min, max) {
